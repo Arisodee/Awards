@@ -24,7 +24,7 @@ class Profile(models.Model):
         Function to delete a user profile
         '''
         self.delete()
-    
+
 class Projects(models.Model):
     '''
     Class for instantiating all projects objects
