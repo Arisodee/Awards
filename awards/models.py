@@ -81,7 +81,7 @@ class Projects(models.Model):
 
 class Comments(models.Model):
     project_id = models.ForeignKey(Projects,on_delete=models.CASCADE)
-    text = models.CharField(max_length=1000)
+    text = models.TextField(max_length=500)
     user = models.ForeignKey(User,on_delete = models.CASCADE)
 
     def __str__(self):
@@ -106,3 +106,10 @@ class Comments(models.Model):
         Function for deleting a comment
         '''
         self.delete()
+
+class Ratings(models.Model):
+    design = models.IntegerField(default=1)
+    usability = models.IntegerField(default=1)
+    content = models.IntegerField(default=1)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    project_id = models.ForeignKey(Projects,on_delete=models.CASCADE)
