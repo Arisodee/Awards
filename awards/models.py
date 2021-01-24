@@ -79,3 +79,30 @@ class Projects(models.Model):
         searched_project = cls.objects.filter(title = search_term)
         return searched_project
 
+class Comments(models.Model):
+    project_id = models.ForeignKey(Projects,on_delete=models.CASCADE)
+    text = models.CharField(max_length=1000)
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.user
+
+    @classmethod
+    def get_all_comments(cls,id):
+        ''''
+        Function for getting all comments
+        '''
+        comments = cls.objects.filter(project_id = id)
+        return comments
+
+    def save_comments(self):
+        '''
+        Function for saving posted comments
+        '''
+        self.save()
+
+    def delete_comment(self):
+        '''
+        Function for deleting a comment
+        '''
+        self.delete()
