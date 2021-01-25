@@ -5,13 +5,13 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete = models.CASCADE)
-    profile_pic = models.ImageField(upload_to='pictures/')
+    profile_pic = models.ImageField(upload_to='profile/', blank = 'true', default = 'default.png')
     bio = models.TextField(max_length=300)
-    info = models.TextField(max_length=500)
+    date_created= models.DateField(auto_now_add=True )
 
 
     def __str__(self):
-        return self.username
+        return  f'{self.user.username} Profile'
 
     def save_profile(self):
         '''
@@ -24,6 +24,12 @@ class Profile(models.Model):
         Function to delete a user profile
         '''
         self.delete()
+        
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+
+    if created:
+        Profile.objects.create(user=instance)
 
 class Projects(models.Model):
     '''
