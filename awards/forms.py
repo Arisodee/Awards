@@ -1,8 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile,Project, Comment
-
+from .models import Profile,Projects, Comments
 
 
 class SignUpForm(UserCreationForm):
@@ -14,13 +13,6 @@ class SignUpForm(UserCreationForm):
         fields = ('username','email','password1','password2')
 
 
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-
-    class Meta:
-        model = User
-        fields = ['username','email']
-
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -29,5 +21,10 @@ class ProfileUpdateForm(forms.ModelForm):
 
 class  NewProjectForm(forms.ModelForm):
     class Meta:
-        model = Project
-        exclude = ['user',]
+        model = Projects
+        exclude = ['user']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['user','project_id']
