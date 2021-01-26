@@ -3,11 +3,11 @@
 {% block content %}
 <div style=padding-top:150px;></div>
 <div class="container">
-    <div class="row">
+    <div class="row jumbotron text-center" style="background-color: black; margin-bottom: 150px;">
         {% if project %}
-        <h2> {{project|length}} projects found with keyword {{message}}</h2>
+        <h2 style="color:white; font-family: 'Lobster Two', cursive;"> {{project|length}} projects found with keyword {{message}}</h2>
         {% else %}
-        <h2> No project found with the keyword {{message}} </h2>
+        <h2 style="color:white; font-family: 'Lobster Two', cursive;"> No project found with the keyword {{message}} </h2>
         {% endif %}
     </div>
     <div class="row">

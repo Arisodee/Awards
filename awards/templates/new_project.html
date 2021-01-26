@@ -2,8 +2,7 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div style=padding-top:120px;  ></div>
-<div id="projo-body" style="overflow-x: hidden;">
+<div style="padding-top:80px; margin-bottom:30px ;" >
   <div class="row ">
     <div class="col-md-1"></div>
     <div class="col-md-4">
@@ -13,7 +12,7 @@
     <div class="col-md-4">
       <div class="card bg-transparent">
         <div class="card-header">
-          <h2><b><u>Post a Project</u></b></h2>
+          <h2 style="font-family: 'Lobster Two', cursive;"><b><u>Post a Project</u></b></h2>
         </div>
         <div class="card-body">
           <form action="{% url 'newproject' %}" method="post" enctype="multipart/form-data">
@@ -27,7 +26,6 @@
     <div class="col-md-1"></div>
 
   </div>
-
 
 </div>
 
