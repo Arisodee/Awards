@@ -26,7 +26,7 @@ A user will be able to:
 
 
 ### Link to Live Site 
-- [Instagram](https://ariso-awards.herokuapp.com/)
+- [Awards](https://ariso-awards.herokuapp.com/)
 
 
 ## Technologies Used
