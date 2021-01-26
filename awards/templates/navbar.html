@@ -6,7 +6,7 @@
     </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar navbar-inverse" id="navbarSupportedContent">
         <div class="row">
 
             <div class="col-sm-5">
@@ -29,19 +29,19 @@
                 </a>
             </div>
             <div class="col-sm-4">
-
+                
                 <ul class="navbar-nav pull-right">
                     <li class="nav-item active">
-                        <a class="nav-link btn btn-info" style="background-color: rgb(123, 248, 248);" href="{%url 'new_project'%}">Add project<span class="sr-only">(current)</span></a>
+                        <a class="nav-link btn btn-info" style="color:black; background-color:rgb(236, 238, 241);" href="{%url 'newproject'%}">Add project<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="dropdown mt-3">
                         <img width="120%" height="120%" src="{{user.profile.profile_pic.url }}" alt=""
-                            style="border-radius: 50%; width:30px; height:30px; ">
+                            style="border-radius: 50%; width:40px; height:40px; ">
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <div>
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a style= "color:white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
@@ -59,7 +59,7 @@
                     </li>
 
                 </ul>
-
+                
             </div>
         </div>
         {% endif %}
