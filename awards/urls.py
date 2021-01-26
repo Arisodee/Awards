@@ -14,7 +14,9 @@ urlpatterns=[
     url(r'^update_profile/$',views.update_profile,name='update_profile'),
     url(r'^singleproject/(\d+)',views.single_project,name='singleproject'),
     path('rate/<int:id>/',views.rate,name='rates'),
-    url(r'^logout/$',views.logout_request,name='logout'
+    url(r'^logout/$', views.logout, {"next_page": '/'}), 
+    url(r'^api/profile/$',views.ProfileList.as_view()),
+    url(r'^api/projects/$',views.ProjectList.as_view()),
 ]
 
 if settings.DEBUG:
