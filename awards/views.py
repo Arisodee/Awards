@@ -191,7 +191,15 @@ def rate(request,id):
     else:
         messages.info(request,'Input all fields')
         return redirect('singleproject',id)
-        
+
+@login_required(login_url="/accounts/login/")
+def logout_request(request):
+    '''
+    Function to log out user
+    '''
+
+    logout(request)
+    return redirect('index')
 
 class ProfileList(APIView):
     def get(self,request,format = None):
@@ -204,14 +212,3 @@ class ProjectList(APIView):
         all_projects = Projects.objects.all()
         serializers = ProjectSerializer(all_projects,many = True)
         return Response(serializers.data)
-
-@login_required(login_url="/accounts/login/")
-def logout_request(request):
-    '''
-    Function to log out user
-    '''
-
-    logout(request)
-    return redirect('index')
-
-  
