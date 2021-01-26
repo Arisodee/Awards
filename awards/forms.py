@@ -28,3 +28,11 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         exclude = ['user','project_id']
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username','email']
