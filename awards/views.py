@@ -4,15 +4,14 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Projects,Comments,Ratings
 from django.contrib.auth.models import User
-from .forms import NewProjectForm,CommentForm,EditProfileForm
 from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import ProfileSerializer,ProjectSerializer
+from .serializer import ProfileSerializer,ProjectSerializer
 from django.contrib.auth import logout
 from rest_framework import status
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserUpdateForm, ProfileUpdateForm, SignUpForm, NewProjectForm
+from .forms import CommentForm, ProfileUpdateForm, SignUpForm, NewProjectForm, UserUpdateForm
 
 
 # Create your views here.
@@ -21,7 +20,7 @@ def index(request):
 
     all_projects = Projects.all_projects()
 
-    return render(request,'index.html'),{'all_projects':all_projects})
+    return render(request,'index.html',{'all_projects':all_projects})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -208,9 +207,11 @@ class ProjectList(APIView):
 
 @login_required(login_url="/accounts/login/")
 def logout_request(request):
-  '''
-  Function to log out user
-  '''
+    '''
+    Function to log out user
+    '''
 
-  logout(request)
-  return redirect('index')
+    logout(request)
+    return redirect('index')
+
+  
